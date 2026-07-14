@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TreeCutter : MonoBehaviour
@@ -9,14 +8,25 @@ public class TreeCutter : MonoBehaviour
     
     void Update()
     {   
+
         Vector3 origin = playerCamera.transform.position;
         Vector3 direction = playerCamera.transform.forward;
 
-        RaycastHit hitInfo;
+        if (Input.GetMouseButton(0)) {
 
-        if (Physics.Raycast(origin, direction, out hitInfo, 5f, treeLayer))
-        {
-            Debug.Log("Hit: " + hitInfo.collider.name);
-        }
+            RaycastHit hitInfo;
+
+            Debug.Log("Mouse clicked!");
+
+            if (Physics.Raycast(origin, direction, out hitInfo, 5f, treeLayer)) {
+
+                TreeHealth tree = hitInfo.collider.GetComponent<TreeHealth>();
+
+                if (tree != null)
+                {
+                    tree.TakeDamage(1);
+                }
+            }
+        } 
     }
 }
