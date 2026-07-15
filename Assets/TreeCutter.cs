@@ -5,6 +5,7 @@ public class TreeCutter : MonoBehaviour
 
     [SerializeField] private LayerMask treeLayer;
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private Animator axeAnimator;
     
     void Update()
     {   
@@ -12,13 +13,13 @@ public class TreeCutter : MonoBehaviour
         Vector3 origin = playerCamera.transform.position;
         Vector3 direction = playerCamera.transform.forward;
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButtonDown(0)) {
 
             RaycastHit hitInfo;
 
-            Debug.Log("Mouse clicked!");
-
             if (Physics.Raycast(origin, direction, out hitInfo, 5f, treeLayer)) {
+
+                axeAnimator.SetTrigger("Swing");
 
                 TreeHealth tree = hitInfo.collider.GetComponent<TreeHealth>();
 
