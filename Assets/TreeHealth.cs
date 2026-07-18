@@ -12,7 +12,13 @@ public class TreeHealth : MonoBehaviour
 
         if (treeHealth <= 0)
         {
-            Destroy(gameObject);
+            Animator anim = GetComponent<Animator>();
+
+            if (anim != null)
+            {
+        
+                anim.Play("TreeFalling"); 
+            }
         }
     }
 }
