@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 928033801628850845}
   - component: {fileID: 4041807735445257983}
   m_Layer: 3
-  m_Name: BrokenLog2
-  m_TagString: Untagged
+  m_Name: BrokenLog
+  m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,8 +171,8 @@ GameObject:
   - component: {fileID: 2768271168156745991}
   - component: {fileID: 8807016687223539706}
   m_Layer: 3
-  m_Name: BrokenLog1
-  m_TagString: Untagged
+  m_Name: BrokenLog
+  m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,8 +327,8 @@ GameObject:
   - component: {fileID: 5238972712341852132}
   - component: {fileID: 4320934501038279288}
   m_Layer: 3
-  m_Name: BrokenLog3
-  m_TagString: Untagged
+  m_Name: BrokenLog
+  m_TagString: Log
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
