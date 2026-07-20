@@ -3,6 +3,7 @@ using UnityEngine;
 public class PickUpLog : MonoBehaviour 
 {
     [SerializeField] private Camera playerCamera; 
+    [SerializeField] private Inventory inventory;
     void Update()
     {
         if (Input.GetMouseButtonDown(1)) // Right Click
@@ -22,11 +23,14 @@ public class PickUpLog : MonoBehaviour
         {
             if (hitInfo.collider.gameObject.name.Contains("Log") || hitInfo.collider.CompareTag("Tree"))
             {
-                Debug.Log("Hit and destroyed: " + hitInfo.collider.gameObject.name);
+                if (inventory.HasSpaceForWood())
+                {
+                    Debug.Log("Picked up: " + hitInfo.collider.gameObject.name);
                 
-                Destroy(hitInfo.collider.gameObject); 
+                    Destroy(hitInfo.collider.gameObject); 
 
-                
+                    inventory.AddWood();
+                }
             }
         } 
     }
