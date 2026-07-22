@@ -17,7 +17,7 @@ public class TreeHealth : MonoBehaviour
             if (anim != null)
             {
         
-                anim.Play("TreeFalling"); 
+                anim.Play("TreeFalling(Final)"); 
             }
         }
     }

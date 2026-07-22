@@ -16,6 +16,8 @@ public class TreeFalling : MonoBehaviour
 
         foreach (Rigidbody rb in logRigidbodies)
         {
+            rb.isKinematic = false;
+
             Vector3 explosionSource = transform.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
 
             rb.AddExplosionForce(explosionForce, explosionSource, explosionRadius, upwardModifier);
