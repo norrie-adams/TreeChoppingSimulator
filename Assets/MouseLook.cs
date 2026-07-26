@@ -2,30 +2,29 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] private Vector2 sensitivity;
+    public float sensitivity = 100f;
 
-    private Vector2 rotation;
-
-    private Vector2 GetInput()
+    private float xRotation = 0f;
+    void Start()
     {
-        Vector2 input = new Vector2
-        (
-            Input.GetAxis("Mouse X"),
-            Input.GetAxis("Mouse Y")
-        );
+        Debug.Log(transform.localEulerAngles);
 
-        return input;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 wantedVelocity = GetInput() * sensitivity;
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        rotation += wantedVelocity * Time.deltaTime;
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        rotation.y = Mathf.Clamp(rotation.y, -90f, 90f);
-
-        transform.localEulerAngles = new Vector3(rotation.y, rotation.x, 0);
+        transform.parent.Rotate(Vector3.up * mouseX);
     }
 }

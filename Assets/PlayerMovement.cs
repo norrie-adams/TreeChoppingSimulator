@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         
         Vector3 movement = transform.right * horizontalInput + transform.forward * verticalInput;
+
+        movement.y = 0;
         
         controller.Move(movement * moveSpeed * Time.deltaTime);
     }
