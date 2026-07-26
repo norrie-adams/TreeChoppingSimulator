@@ -21,7 +21,7 @@ public class PickUpLog : MonoBehaviour
 
         if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out RaycastHit hitInfo, 5f)) 
         {
-            if (hitInfo.collider.gameObject.name.Contains("Log") || hitInfo.collider.gameObject.layer == LayerMask.NameToLayer("Tree"))
+            if (hitInfo.collider.gameObject.name.Contains("Log") || hitInfo.collider.CompareTag("Log"))
             {
                 if (inventory.HasSpaceForWood())
                 {

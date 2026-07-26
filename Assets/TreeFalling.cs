@@ -10,13 +10,15 @@ public class TreeFalling : MonoBehaviour
 
     public void SpawnLogs()
     {
+
+
         GameObject spawnedLogs = Instantiate(brokenTreePrefab, transform.position, transform.rotation);
 
         Rigidbody[] logRigidbodies = spawnedLogs.GetComponentsInChildren<Rigidbody>();
+        Debug.Log("Logs found: " + logRigidbodies.Length);
 
         foreach (Rigidbody rb in logRigidbodies)
         {
-            rb.isKinematic = false;
 
             Vector3 explosionSource = transform.position + new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
 
