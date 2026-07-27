@@ -11,6 +11,7 @@ public class TreeFalling : MonoBehaviour
     public void SpawnLogs()
     {
 
+        Debug.Log("Tree spawning logs at: " + transform.position);
 
         GameObject spawnedLogs = Instantiate(brokenTreePrefab, transform.position, transform.rotation);
 
