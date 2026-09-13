@@ -14,6 +14,8 @@ public class Axe : MonoBehaviour
         {
             TreeHealth tree = hitInfo.collider.GetComponentInParent<TreeHealth>();
 
+            Debug.Log(hitInfo.collider.name);
+
             if (tree != null)
             {
                 tree.TakeDamage(1);

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     public int woodCount = 0;
+    public float playerMoney = 0;
 
     public bool HasSpaceForWood()
     {
@@ -20,5 +21,14 @@ public class Inventory : MonoBehaviour
     {
         woodCount += 1;
         Debug.Log("Wood Count Is: " + woodCount);
+    }
+    public void SellItem()
+    {
+        if (woodCount > 0)
+        {
+            woodCount -= 1;
+            playerMoney += 1;
+            Debug.Log("Player money is: " + playerMoney);
+        }
     }
 }
